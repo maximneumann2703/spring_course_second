@@ -1,19 +1,17 @@
-package de.training.springtraining.iocAndDi;
+package de.training.springtraining.introduction;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
-public class Test3_ConstrArg_SetterInj {
+public class Test2
+{
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
+        Pet pet = context.getBean("myPet",Pet.class);
+        pet.say();
 
-        Person person = context.getBean("myPerson",Person.class);
-        person.callYourPet();
-
-        System.out.println(person.getSurname());
-        System.out.println(person.getAge());
         context.close();
     }
 }
